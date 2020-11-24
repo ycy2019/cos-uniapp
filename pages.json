@@ -1,5 +1,37 @@
 {
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false,
+
+			"app-plus": {
+				"titleNView": {
+					"titleText": "我的空间",
+					"titleAlign":"left",
+					"buttons": [{
+						"text": " ",
+						"fontSize": "10px"
+					}, {
+						"text": "&#xe612;",
+						"fontSrc": "/static/icon/nav.ttf",
+						"fontSize": "27px"
+					}, {
+						"text": " ",
+						"fontSize": "10px"
+					}, {
+						"text": "&#xe60d;",
+						"fontSrc": "/static/icon/nav.ttf",
+						"fontSize": "27px"
+					}]
+				}
+			}
+		}
+
+	}, {
 		"path": "pages/login/login",
 		"style": {
 			"navigationBarTitleText": "欢迎",
