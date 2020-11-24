@@ -15,8 +15,8 @@
 		data() {
 			return {
 				list: [{
-						iconPath: "/static/tababr/page.png",
-						selectedIconPath: "home-fill",
+						iconPath: "/static/tabbar/page.png",
+						selectedIconPath: "/static/tabbar/page-select.png",
 						text: '资源',
 						isDot: true,
 						customIcon: false,
@@ -29,8 +29,8 @@
 						customIcon: false,
 					},
 					{
-						iconPath: "account",
-						selectedIconPath: "account-fill",
+						iconPath: "/static/tabbar/my.png",
+						selectedIconPath: "/static/tabbar/my-select.png",
 						text: '我的',
 						isDot: false,
 						customIcon: false,
