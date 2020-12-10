@@ -6,26 +6,27 @@
 		"path": "pages/index/index",
 		"style": {
 			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false,
+			"enablePullDownRefresh": true,
 
 			"app-plus": {
 				"titleNView": {
+					"autoBackButton":false,
 					"titleText": "我的空间",
 					"titleAlign":"left",
-					"buttons": [{
-						"text": " ",
-						"fontSize": "10px"
+					"buttons": [ {
+						"text": "",
+						"width":"15px"
 					}, {
-						"text": "&#xe612;",
+						"text": "\ue612",
 						"fontSrc": "/static/icon/nav.ttf",
-						"fontSize": "27px"
+						"fontSize": "28px"
 					}, {
-						"text": " ",
-						"fontSize": "10px"
+						"text": "",
+						"width":"15px"
 					}, {
-						"text": "&#xe60d;",
+						"text": "\ue60d",
 						"fontSrc": "/static/icon/nav.ttf",
-						"fontSize": "27px"
+						"fontSize": "28px"
 					}]
 				}
 			}

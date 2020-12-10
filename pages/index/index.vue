@@ -1,11 +1,19 @@
 <template>
 	<view>
-		<u-tabs :list="list" :is-scroll="false" :current="current" @change="change" bg-color="#f1f1f1"></u-tabs>
+		<u-tabs style="position: fixed; width: 100%; z-index: 99;" :list="list" :is-scroll="false" :current="current" @change="change"
+		 bg-color="#f1f1f1"></u-tabs>
+		<u-top-tips ref="uTips"></u-top-tips>
 		<view class="list-content">
-			<view class="file" v-for="item in dirList" :key="item.name">
+			<view class="file" v-for="item in dirList" v-if="selectType=='all'" :key="item.name" @click="test()">
 				<image :src="iconList.directory" mode=""></image>
 				<view class="file-name">
 					{{item.Prefix}}
+				</view>
+			</view>
+			<view class="file" v-for="item in fileList" v-if="selectType==item.type||selectType=='all'" :key="item.name" @click="clickFile(event,item.type)">
+				<image :src="iconList[item.type]" mode=""></image>
+				<view class="file-name">
+					{{item.Key}}
 				</view>
 			</view>
 		</view>
@@ -17,8 +25,9 @@
 	import {
 		url
 	} from "../conf.js"
-	console.log(url)
+
 	export default {
+		globalData: {},
 		data() {
 			return {
 				list: [{
@@ -33,35 +42,51 @@
 					name: '其他'
 				}],
 				current: 0,
-				dirList: [],
+				dirList: [1, 2, 3],
+				selectType: "all",
+				fileList: [],
 				iconList: {
 					directory: "../../static/icon/file.png",
 					video: "../../static/icon/video-icon.png",
 					picture: "../../static/icon/picture-icon.png",
 					document: "../../static/icon/document-icon.png",
-					other: ""
+					other: "../../static/icon/other-icon.png"
 				}
 			}
 		},
 
 		onLoad() {
+			// uni.setNavigationBarTitle({
+			// 	title:'haha'
+			// });
 			uni.request({
 				url: url + "/getObjectLsit",
 				method: "GET",
 				dataType: "json",
 				success: (result) => {
 					this.dirList = result.data.CommonPrefixes
+					this.fileList = result.data.Contents
 					console.log(result)
 				},
-				fail: function(err) {
-					alert("获取网盘数据失败，详情联系管理员")
+				fail: (err) => {
+					this.$refs.uTips.show({
+						title: "获取网盘数据失败，详情联系管理员(虽然管理员不一定理你)",
+						type: 'error',
+						duration: '2300'
+					})
 					console.log(err)
 				}
 			})
 		},
 		methods: {
 			change(index) {
+				const typeArr = ["all", "video", "picture", "document", "other"]
 				this.current = index;
+				this.selectType = typeArr[index]
+				console.log(this.selectType)
+			},
+			clickFile(e, key) {
+
 			}
 		}
 	}
@@ -74,6 +99,7 @@
 		justify-content: space-around;
 		align-items: center;
 		flex-wrap: wrap;
+		padding-top: 90rpx;
 
 		.file {
 			width: 200rpx;
@@ -95,8 +121,14 @@
 
 			.file-name {
 				margin-top: 10rpx;
-				font-size: 16rpx;
+				font-size: 20rpx;
 				color: #3d3d3d;
+				width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				text-align: center;
+				padding: 0 15rpx;
 			}
 		}
 
