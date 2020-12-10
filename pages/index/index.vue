@@ -10,7 +10,7 @@
 					{{item.Prefix}}
 				</view>
 			</view>
-			<view class="file" v-for="item in fileList" v-if="selectType==item.type||selectType=='all'" :key="item.name" @click="clickFile(event,item.type)">
+			<view class="file" v-for="item in fileList" v-if="selectType==item.type||selectType=='all'" :key="item.name" @click="clickFile(item.Key,item.type)">
 				<image :src="iconList[item.type]" mode=""></image>
 				<view class="file-name">
 					{{item.Key}}
@@ -85,8 +85,33 @@
 				this.selectType = typeArr[index]
 				console.log(this.selectType)
 			},
-			clickFile(e, key) {
-
+			clickFile(key,type) {
+				console.log(key)
+				console.log(type)
+				uni.request({
+					url: url + "/getObjectUrl",
+					data: {
+						key
+					},
+					method: "POST",
+					dataType: "json",
+					success: (result) => {
+						let url = encodeURIComponent(result.data.Url)
+						console.log(url)
+						uni.navigateTo({
+							url: `../detail/detail?url=${url}&type=${type}`,
+							animationType: "zoom-fade-out"
+						})
+					},
+					fail: (err) => {
+						this.$refs.uTips.show({
+							title: "获取文件信息失败，详情联系管理员(虽然管理员不一定理你)",
+							type: 'error',
+							duration: '2300'
+						})
+						console.log(err)
+					}
+				})
 			}
 		}
 	}
