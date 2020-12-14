@@ -3,6 +3,7 @@
 		<view id="user-content">
 			<input type="text" id="user-input" placeholder="请输入用户名" />
 		</view>
+		<button type="default" @click="login()">登录</button>
 	</view>
 </template>
 
@@ -27,7 +28,19 @@
 
 		input {
 			height: 100%;
-			
+
 		}
 	}
 </style>
+<script>
+	export default {
+		methods: {
+			login() {
+				console.log(11)
+				uni.navigateTo({
+					url: "../index/index"
+				})
+			}
+		}
+	}
+</script>

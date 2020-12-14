@@ -56,10 +56,17 @@
 		},
 
 		onLoad(options) {
+			console.log(options)
 			// uni.setNavigationBarTitle({
 			// 	title:'haha'
 			// });
-			this.getObjectLsit()
+
+			if (options.path) {
+				this.getObjectLsit(options.path)
+			} else {
+				//报错就好
+			}
+
 		},
 		methods: {
 			change(index) {
@@ -113,16 +120,11 @@
 					method: "GET",
 					dataType: "json",
 					success: (result) => {
-						if (!path) {
-							this.dirList = result.data.CommonPrefixes
-							this.fileList = result.data.Contents
-						} else {
-							console.log(path)
-							uni.navigateTo({
-								url: "../directory/directory?path="+path,
-								animationType: "zoom-fade-out"
-							})
-						}
+						uni.setNavigationBarTitle({
+							title: path
+						});
+						this.dirList = result.data.CommonPrefixes
+						this.fileList = result.data.Contents
 						console.log(result)
 					},
 					fail: (err) => {

@@ -2,27 +2,35 @@
 	"easycom": {
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
+
 	"pages": [{
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarTitleText": "欢迎",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
 		"path": "pages/index/index",
 		"style": {
 			"navigationBarTitleText": "",
-			"enablePullDownRefresh": true,
+			"enablePullDownRefresh": false,
 
 			"app-plus": {
 				"titleNView": {
-					"autoBackButton":false,
+					"autoBackButton": false,
 					"titleText": "我的空间",
-					"titleAlign":"left",
-					"buttons": [ {
+					"titleAlign": "left",
+					"buttons": [{
 						"text": "",
-						"width":"15px"
+						"width": "15px"
 					}, {
 						"text": "\ue612",
 						"fontSrc": "/static/icon/nav.ttf",
 						"fontSize": "28px"
 					}, {
 						"text": "",
-						"width":"15px"
+						"width": "15px"
 					}, {
 						"text": "\ue60d",
 						"fontSrc": "/static/icon/nav.ttf",
@@ -33,10 +41,40 @@
 		}
 
 	}, {
-		"path": "pages/login/login",
+		"path": "pages/detail/detail",
 		"style": {
-			"navigationBarTitleText": "欢迎",
+			"navigationBarTitleText": "",
 			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/directory/directory",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false,
+
+			"app-plus": {
+				"titleNView": {
+					"autoBackButton": false,
+					"titleText": "我的空间",
+					"titleAlign": "left",
+					"buttons": [{
+						"text": "",
+						"width": "15px"
+					}, {
+						"text": "\ue612",
+						"fontSrc": "/static/icon/nav.ttf",
+						"fontSize": "28px"
+					}, {
+						"text": "",
+						"width": "15px"
+					}, {
+						"text": "\ue60d",
+						"fontSrc": "/static/icon/nav.ttf",
+						"fontSize": "28px"
+					}]
+				}
+			}
 		}
 
 	}],
