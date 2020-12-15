@@ -37,7 +37,7 @@
 		methods: {
 			login() {
 				console.log(11)
-				uni.navigateTo({
+				uni.redirectTo({
 					url: "../index/index"
 				})
 			}

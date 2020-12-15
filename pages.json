@@ -7,37 +7,19 @@
 		"path": "pages/login/login",
 		"style": {
 			"navigationBarTitleText": "欢迎",
-			"enablePullDownRefresh": false
+			"enablePullDownRefresh": false,
+			"app-plus": {
+				"titleNView": {
+					"autoBackButton": false
+				}
+			}
 		}
 
 	}, {
 		"path": "pages/index/index",
 		"style": {
 			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false,
-
-			"app-plus": {
-				"titleNView": {
-					"autoBackButton": false,
-					"titleText": "我的空间",
-					"titleAlign": "left",
-					"buttons": [{
-						"text": "",
-						"width": "15px"
-					}, {
-						"text": "\ue612",
-						"fontSrc": "/static/icon/nav.ttf",
-						"fontSize": "28px"
-					}, {
-						"text": "",
-						"width": "15px"
-					}, {
-						"text": "\ue60d",
-						"fontSrc": "/static/icon/nav.ttf",
-						"fontSize": "28px"
-					}]
-				}
-			}
+			"enablePullDownRefresh": false
 		}
 
 	}, {
@@ -51,30 +33,7 @@
 		"path": "pages/directory/directory",
 		"style": {
 			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false,
-
-			"app-plus": {
-				"titleNView": {
-					"autoBackButton": false,
-					"titleText": "我的空间",
-					"titleAlign": "left",
-					"buttons": [{
-						"text": "",
-						"width": "15px"
-					}, {
-						"text": "\ue612",
-						"fontSrc": "/static/icon/nav.ttf",
-						"fontSize": "28px"
-					}, {
-						"text": "",
-						"width": "15px"
-					}, {
-						"text": "\ue60d",
-						"fontSrc": "/static/icon/nav.ttf",
-						"fontSize": "28px"
-					}]
-				}
-			}
+			"enablePullDownRefresh": false
 		}
 
 	}],
@@ -82,6 +41,29 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#007AFF",
-		"backgroundColor": "#FFFFFF"
+		"backgroundColor": "#FFFFFF",
+		"app-plus": {
+
+			"titleNView": {
+				"autoBackButton": true,
+				"titleText": "我的空间",
+				"titleAlign": "center",
+				"buttons": [{
+					"text": "",
+					"width": "15px"
+				}, {
+					"text": "\ue612",
+					"fontSrc": "/static/icon/nav.ttf",
+					"fontSize": "28px"
+				}, {
+					"text": "",
+					"width": "15px"
+				}, {
+					"text": "\ue60d",
+					"fontSrc": "/static/icon/nav.ttf",
+					"fontSize": "28px"
+				}]
+			}
+		}
 	}
 }

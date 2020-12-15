@@ -60,17 +60,20 @@
 			// 	title:'haha'
 			// });
 			this.getObjectLsit()
+			var webView = this.$mp.page.$getAppWebview();
+			webView.setStyle({
+				titleNView: {
+					autoBackButton: false
+				}
+			})
 		},
 		methods: {
 			change(index) {
 				const typeArr = ["all", "video", "picture", "document", "other"]
 				this.current = index;
 				this.selectType = typeArr[index]
-				console.log(this.selectType)
 			},
 			clickFile(key, type) {
-				console.log(key)
-				console.log(type)
 				switch (type) {
 					case "directory":
 						this.getObjectLsit(key)
@@ -86,7 +89,7 @@
 							success: (result) => {
 								let url = encodeURIComponent(result.data.Url)
 								console.log(url)
-								uni.navigateTo({
+								uni.redirectTo({
 									url: `../detail/detail?url=${url}&type=${type}`,
 									animationType: "zoom-fade-out"
 								})
@@ -104,7 +107,6 @@
 				}
 			},
 			getObjectLsit(path) {
-				console.log(path)
 				uni.request({
 					url: url + "/getObjectLsit",
 					data: {
@@ -119,7 +121,7 @@
 						} else {
 							console.log(path)
 							uni.navigateTo({
-								url: "../directory/directory?path="+path,
+								url: "../directory/directory?path=" + path,
 								animationType: "zoom-fade-out"
 							})
 						}
